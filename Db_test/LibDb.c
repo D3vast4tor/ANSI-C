@@ -61,13 +61,36 @@ struct Node * rm_user(struct Node * head,char * username){
     return head;
 }
 int main(){
-    char name[20],surname[20];
-    printf("\nInserire il nome: ");
-    scanf(" %s",&name);
-    printf("\nInserire il cognome: ");
-    scanf(" %s",&surname);
-    int id = 123123;
-    head = __init__(head,name,surname,id);
-    printf("Name: %s\nSurname: %s\nID: %d\n",head->data->name,head->data->surname,head->data->id);
+    char username[20],password[20]conf_passwrd[20];
+    char choise;
+    do{
+        switch(choise){
+            case 'a':
+                printf("\nType the username: ");
+                scanf(" %s",%username);
+                printf("\nType the password: ");
+                scanf(" %s",%password);
+                printf("\nRetype the password: ");
+                scanf(" %s",&conf_passwrd);
+                if(password == conf_passwrd){
+                    if(head == null){
+                        head = __init__(head,username,password);
+                    }else{
+                        head = add_user(head,username,password);
+                    }
+                }
+            break;
+            case 'r':
+            
+            break;
+            case 'q';
+
+            break;
+        }
+    }while(choise != 'q')
+    
+    
+
+    head = 
     
 }
