@@ -9,24 +9,56 @@
 
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 struct User{
     char username[20];
     char password[20];
-    int count;
 };
 struct Node{
-    struct Student * data;
+    struct User * data;
     struct Node * next;
 };
 struct Node * head = NULL;
-struct Node * __init__(struct Node * head,char * name,char * surname,int idd){
+
+struct Node * __init__(struct Node * head,char * username,char * password){
     head = malloc(sizeof(struct Node));
-    strcpy(head->data->name,name);
-    strcpy(head->data->surname,surname);
-    head->data->id = idd;
+    strcpy(head->data->username,username);
+    strcpy(head->data->password,password);
     head->next = NULL;
     return head;
     
+}
+
+struct Node * add_user(struct Node * head,char * username,char * password){
+    struct Node * cur,new_node;
+    new_node = malloc(sizeof(struct Node));
+    strcpy(new_node->data->username,username);
+    strcpy(new_node->data->password,password);
+    new_node->next == NULL;
+    for(cur = head;;cur = cur->next){
+        if(cur->next == NULL){
+            cur->next = new_node;
+            break;
+        }
+    }
+    return head;
+}
+
+struct Node * rm_user(struct Node * head,char * username){
+    struct Node * prec,cur,succ;
+    for(cur = head;;cur = cur->next){
+        if(cur->data->username != username){
+            prec = cur;
+        }else if(cur->data->username == username){
+            succ = cur->next;
+            prec->next = succ;
+            cur = NULL;
+            break;
+        }
+    }
+    return head;
 }
 int main(){
     char name[20],surname[20];
