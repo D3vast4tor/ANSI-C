@@ -9,18 +9,18 @@
 
 */
 
-struct student{
-    char name[20];
-    char surname[20];
-    int id;
+struct User{
+    char username[20];
+    char password[20];
+    int count;
 };
-struct node{
-    struct student * data;
-    struct node * next;
+struct Node{
+    struct Student * data;
+    struct Node * next;
 };
-struct node * head = NULL;
-struct node * __init__(struct node * head,char * name,char * surname,int idd){
-    head = malloc(sizeof(struct node));
+struct Node * head = NULL;
+struct Node * __init__(struct Node * head,char * name,char * surname,int idd){
+    head = malloc(sizeof(struct Node));
     strcpy(head->data->name,name);
     strcpy(head->data->surname,surname);
     head->data->id = idd;
